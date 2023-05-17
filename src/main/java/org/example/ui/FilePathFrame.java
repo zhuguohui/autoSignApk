@@ -26,7 +26,7 @@ public class FilePathFrame extends JFrame implements Log {
     }
 
     private void setUI(){
-        setSize(500,500);
+        setSize(600,500);
         setResizable(false);
         setTitle("自动签名工具");
         setLocationRelativeTo(null);
@@ -36,12 +36,13 @@ public class FilePathFrame extends JFrame implements Log {
 
         jText = new JTextPane();
         jText.setEditable(false);
-        Font font = new Font("Default", Font.BOLD, 30 );
+        Font font = new Font("Default", Font.BOLD, 15 );
         jText.setFont(font);
 
         JScrollPane pane = new JScrollPane(jText);
-        pane.setPreferredSize(new Dimension(500,500));
+        pane.setPreferredSize(new Dimension(600,500));
         add(pane,BorderLayout.CENTER);
+
 
 
         jText.setTransferHandler(new TransferHandler(){

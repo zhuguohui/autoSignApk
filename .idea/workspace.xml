@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab560318-f48d-44b6-9e01-7bedd1421a3b" name="Changes" comment="初始化提交">
+    <list default="true" id="ab560318-f48d-44b6-9e01-7bedd1421a3b" name="Changes" comment="完成jar打包的配置">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/FilePathFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/FilePathFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +71,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="org.example.config" />
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684308291006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="完成jar打包的配置">
+      <created>1684309393512</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684309393512</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +190,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始化提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化提交" />
+    <MESSAGE value="完成jar打包的配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成jar打包的配置" />
   </component>
 </project>
