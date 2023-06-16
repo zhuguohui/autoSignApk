@@ -32,7 +32,7 @@ public class SignConfigsBean implements Serializable {
      * D:\Android\SDK\build-tools\33.0.2\apksigner.bat sign --ks E:\Desktop\apk\keysotres\wzrb.jks  --ks-pass  pass:xxx   --ks-key-alias aaa  --key-pass  pass:xxx --out E:\Desktop\apk\wd_signed.apk E:\Desktop\apk\wd.apk
      */
 
-    private static final String CMD_TEMPLATE = "%s sign --ks %s --ks-pass pass:%s --ks-key-alias %s --key-pass pass:%s --out %s %s";
+    private static final String CMD_TEMPLATE = "%s sign --v3-signing-enabled false --v4-signing-enabled false --ks %s --ks-pass pass:%s --ks-key-alias %s --key-pass pass:%s --out %s %s";
 
     /**
      * 生成签名的命令

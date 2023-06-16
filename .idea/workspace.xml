@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab560318-f48d-44b6-9e01-7bedd1421a3b" name="Changes" comment="完成jar打包的配置">
+    <list default="true" id="ab560318-f48d-44b6-9e01-7bedd1421a3b" name="Changes" comment="添加jar包">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/FilePathFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/FilePathFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/SignConfigsBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/SignConfigsBean.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +74,19 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Inteillj Project/autoSign/AutoSign/jar&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Inteillj Project\autoSign\AutoSign\jar" />
+    </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="org.example.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.AutoSign [jar]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="AutoSign.main" />
@@ -174,7 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684309393512</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="调整大小">
+      <created>1684309995492</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684309995492</updated>
+    </task>
+    <task id="LOCAL-00005" summary="添加jar包">
+      <created>1684315743637</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684315743637</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +209,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初始化提交" />
     <MESSAGE value="完成jar打包的配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成jar打包的配置" />
+    <MESSAGE value="调整大小" />
+    <MESSAGE value="添加jar包" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加jar包" />
   </component>
 </project>
