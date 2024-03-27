@@ -39,7 +39,7 @@
 |keyAlias|别名|
 |aliasPassword|别名密码|
 ## 3.使用bat启动
-将以下命令放置在一个bat文件中即可。其中 **-configFilePath** 后面接着的是上面的配置文件的地址。 可以将bat文件添加到桌面会计方式，然后将要签名的apk拖到该快捷方式上就可以直接进行签名
+将以下命令放置在一个bat文件中即可。其中 **-configFilePath** 后面接着的是上面的配置文件的地址。 可以将bat文件添加到桌面快捷方式，然后将要签名的apk拖到该快捷方式上就可以直接进行签名
 ```java
 start /min "cmd" java -jar autoSign-1.0.jar -configFilePath .\signConfig.json -apkFilePath %1
 ```
