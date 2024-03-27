@@ -38,7 +38,11 @@ public class Main {
             doSign(log,str, finalSignConfigFile);
             return null;
         });
-
+        // 如果apk路径不为空直接进行签名
+        String apkPath=getApkPathFromArgs(args);
+        if(!isEmpty(apkPath)){
+            doSign(log,apkPath, finalSignConfigFile);
+        }
     }
 
     private static void doSign(Log log, String apkPath, SignConfigFile configFile) {
@@ -100,6 +104,27 @@ public class Main {
         String configFilePath=null;
         for(int i=0;i<args.length;i++){
             if(CONFIG_KEY.equals(args[i])&&i<(args.length-1)){
+                configFilePath=args[i+1];
+            }
+        }
+
+        return configFilePath;
+    }
+
+    private static final String APK_PATH_KEY="-apkFilePath";
+
+    /**
+     * 获取apk路径
+     * @param args
+     * @return
+     */
+    private static String getApkPathFromArgs(String[] args) {
+        if(args==null||args.length==0){
+            return null;
+        }
+        String configFilePath=null;
+        for(int i=0;i<args.length;i++){
+            if(APK_PATH_KEY.equals(args[i])&&i<(args.length-1)){
                 configFilePath=args[i+1];
             }
         }
