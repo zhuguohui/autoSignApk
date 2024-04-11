@@ -8,6 +8,10 @@
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/639548b7c04f4e719e661d5618b34f62.png)
 
+# 2024.4.11 发布1.1
+支持了对齐功能，如果apk没有对齐，在targetSdkVersion>30的情况下会出现无法按照的情。
+需要在配置文件中配置对齐工具的地址。属性为alignToolsPath，值可以参考。"D:\\Android\\SDK（前面是sdk的地址）\\build-tools\\33.0.2(最新的sdk版本)\\zipalign.exe"
+
 # 效果
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/e7b4d90c860046478e8494781777a537.gif#pic_center)
 # 使用
@@ -19,6 +23,7 @@
 ```json
 {
 	"signToolsPath": "D:\\Android\\SDK\\build-tools\\33.0.2\\apksigner.bat",
+  "alignToolsPath":"D:\\Android\\SDK\\build-tools\\33.0.2\\zipalign.exe",
 	"signConfigs": [{
 		"appId": "com.aaa.bbb.ccc",
 		"storePath": ".\\keysotres\\abc.jks",
@@ -41,7 +46,7 @@
 ## 3.使用bat启动
 将以下命令放置在一个bat文件中。即可。其中 **-configFilePath** 后面接着的是上面的配置文件的地址。
 ```java
-start /min "cmd" java -jar autoSign-1.0.jar -configFilePath .\signConfig.json
+start /min "cmd" java -jar autoSign-1.1.jar -configFilePath .\signConfig.json
 ```
 ## 直接拖入
 拖入apk以后会自动解析出包名，然后通过配置文件签名。最后在apk原来的位置生成一个名字为 xxx-signed.apk
