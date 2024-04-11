@@ -4,10 +4,17 @@ import net.dongliu.apk.parser.bean.ApkMeta;
 import org.example.cmd.CmdUtil;
 import org.example.config.SignConfigFile;
 import org.example.config.SignConfigsBean;
+import org.example.file.FileUtil;
+import org.example.function.Action;
+import org.example.function.Action2;
 import org.example.ui.FilePathFrame;
 import org.example.ui.Log;
 
+import java.io.File;
 import java.io.IOException;
+
+import static org.example.file.FileUtil.getOutPath;
+import static org.example.file.FileUtil.getOutPathInTemp;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,13 +42,54 @@ public class Main {
 
         SignConfigFile finalSignConfigFile = signConfigFile;
         jFrame.setFilePathGetFunction(str->{
-            doSign(log,str, finalSignConfigFile);
+            doAlign(log,str,finalSignConfigFile,(outPath,signedApkPath)->{
+                doSign(log,outPath,signedApkPath, finalSignConfigFile);
+            });
             return null;
         });
+    }
+
+    /**
+     * 对文件进行对齐
+     * 官方解释：
+     * 如果以 Android 11（API 级别 30）或更高版本为目标平台的应用包含压缩的 resources.arsc
+     * 文件或者如果此文件未按 4 字节边界对齐，应用将无法安装。如果存在其中任意一种情况，系统将无法对此文件进行内存映射。
+     * 无法进行内存映射的资源表必须读入 RAM 中的缓冲区，从而给系统造成不必要的内存压力，并大大增加设备的 RAM 使用量
+     * 原文链接：https://blog.csdn.net/qq_23045311/article/details/125814795
+     * @param log
+     * @param apkPath
+     * @param configFile
+     * @param successCall
+     */
+    private static void doAlign(Log log, String apkPath, SignConfigFile configFile, Action2<String,String> successCall){
+        String outPath = getOutPathInTemp(apkPath, "zipAlign");
+        boolean executeSuccess=false;
+        try{
+            String alignCmdStr = configFile.getAlignCmdStr(apkPath, outPath);
+            executeSuccess= CmdUtil.executive(alignCmdStr,log);
+            if(!executeSuccess){
+                throw new RuntimeException("执行对齐命令失败:命令为"+alignCmdStr);
+            }
+            //成功
+            if(successCall!=null){
+                String signedApkPath= FileUtil.getOutPath(apkPath,"signed");
+                successCall.call(outPath,signedApkPath);
+            }
+
+        }catch (Exception e){
+            log.e("对齐失败:"+e.getMessage());
+        }finally {
+            //删除文件
+            FileUtil.doDeleteFile(outPath);
+        }
 
     }
 
-    private static void doSign(Log log, String apkPath, SignConfigFile configFile) {
+
+
+
+
+    private static void doSign(Log log, String apkPath,String signedApkPath, SignConfigFile configFile) {
         ApkMeta apkInfo=null;
         try {
            apkInfo= ApkUtil.getPackInfo(apkPath);
@@ -61,7 +109,7 @@ public class Main {
 
         SignConfigsBean.CmdInfo cmdInfo = null;
         try{
-            cmdInfo=configsBean.buildSignCommand(apkPath, "signed");
+            cmdInfo=configsBean.buildSignCommand(apkPath, signedApkPath);
         }catch (Exception e){
             showError(log,"生成签名命令失败",e);
             return;

@@ -40,12 +40,27 @@ public class SignConfigFile implements Serializable {
      */
 
     private String signToolsPath;
+
+    //对齐工具的路径地址;一般在SDK\build-tools\33.0.2(最新的sdkVersion)\zipalign.exe
+    private String alignToolsPath;
     private List<SignConfigsBean> signConfigs;
 
     private String getSignToolsPath() {
         return signToolsPath;
     }
+    private static final String ALIGN_CMD_TEMPLATE = "%s -p -f -v 4 %s %s";
 
+    /**
+     * 获取用来压缩的命令
+     * @param inputApkPath
+     * @return
+     */
+    public  String getAlignCmdStr(String inputApkPath,String outApkPath){
+        if(alignToolsPath==null||alignToolsPath.length()==0){
+            throw new RuntimeException("alignToolsPath 没有配置 无法对齐apk");
+        }
+        return String.format(ALIGN_CMD_TEMPLATE, alignToolsPath, inputApkPath, outApkPath);
+    }
 
 
 
@@ -60,6 +75,7 @@ public class SignConfigFile implements Serializable {
         for(SignConfigsBean bean:signConfigs){
             if(packageName.equals(bean.getAppId())){
                 bean.setSignToolsPath(getSignToolsPath());
+                bean.setConfigFilePath(filePath);
                 return bean;
             }
         }

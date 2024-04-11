@@ -20,12 +20,19 @@ public class SignConfigsBean implements Serializable {
     private String aliasPassword;
     private String signToolsPath;
 
+    private String configFilePath;
+
+
     public String getAppId() {
         return appId;
     }
 
     void setSignToolsPath(String signToolsPath) {
         this.signToolsPath = signToolsPath;
+    }
+
+     void setConfigFilePath(String configFilePath) {
+        this.configFilePath = configFilePath;
     }
 
     /**
@@ -42,18 +49,23 @@ public class SignConfigsBean implements Serializable {
      *                   在原来的位置生成的apk的名字为a_xxx.apk
      * @return 生成的签名命令
      */
-    public CmdInfo buildSignCommand(String apkPath, String signSuffix) {
+    public CmdInfo buildSignCommand(String apkPath, String signedApkPath) {
 
-        String outPath = getOutPath(apkPath, signSuffix);
+
         String cmd = String.format(CMD_TEMPLATE,
                 signToolsPath,
                 storePath,
                 storePassword,
                 keyAlias,
                 aliasPassword,
-                outPath,
+                signedApkPath,
                 apkPath);
-        return new CmdInfo(cmd, outPath);
+        //如果包含相对路径的话比如./就替换为配置文件的父路径
+        File file=new File(configFilePath);
+        String parentPath= file.getParent()+"\\";
+
+        cmd= cmd.replace(".\\",parentPath);
+        return new CmdInfo(cmd, signedApkPath);
     }
 
     public static class CmdInfo {
