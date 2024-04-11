@@ -74,8 +74,11 @@
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="org.example.config" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.function" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.AutoSign [jar]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="AutoSign.main" />
@@ -131,8 +134,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.AutoSign [jar]" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.SignConfigsBean" />
       </list>
     </recent_temporary>
